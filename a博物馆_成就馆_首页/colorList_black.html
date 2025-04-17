@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色系内部展示（黑）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: url(img/background_black.jpg) center / cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: '优设标题黑'; 
+            color: #21201f;
+            font-size: 45px;
+        }
+        .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+      }
+        main.table{
+            width: 82vw;
+            height: 90vh;
+            background-color: #fff5;
+            box-shadow: 0 8px 16px #0005;
+            border-bottom: 16px;
+            overflow: hidden;
+        }
+        .header{
+            width: 100%;
+            height: 10%;
+            background-color: #fff5;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .input-group{
+            width: 35%;
+            height: 50%;
+            background-color: #fff5;
+            padding: 0 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            transition: .2s;
+        }
+        .header .input-group:hover{
+            width: 45%;
+            background-color: #fff8;
+            box-shadow: 0 5px 40px #0002;
+        }
+        .header .input-group img{
+            width: 20px;
+            height: 20px;
+        }
+        .header .input-group input{
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        .shell{
+            width: 95%;
+            max-height: calc(90% - 25px);
+            background-color: #fffb;
+            margin: 8px auto;
+            border-radius: 10px;
+            overflow: auto;
+        }
+        .shell::-webkit-scrollbar {
+            width:10px;
+            height: 10px;
+        }
+        table{
+            width: 100%;
+        }
+        td img{
+            width: 20px;
+            height: 36px;
+            margin-right: 10px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        table,
+        th,
+        td{
+            border-collapse: collapse;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-family: "华文中宋";
+            font-weight: 500;
+        }
+        thead th{
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #d5d1defe;
+            cursor: pointer;
+            z-index: 10;
+        }
+        tbody tr:nth-child(even){
+            background-color: #0000000b;
+        }
+        tbody tr:hover{
+            background-color: #fff6 !important;
+        }
+        .button {
+            cursor: pointer;
+            padding: 12px 40px;
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            text-align: justify;
+            width: 120px;
+            font-family: '优设标题黑';
+            font-size: 21px;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            width: 400px; /* 悬停时放大 */
+            height: 320px; /* 悬停时放大 */
+        }
+        .button:hover .tooltip img {
+            width: 300px; /* 图片放大 */
+            height: 240px; /* 图片放大 */
+        }
+        .button1{ color: #ffffff;}
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            opacity: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 40px #0002;
+            z-index: 1000;
+            text-align: center;
+            font-family: "华文中宋";
+            animation: popupFadeIn 0.3s ease-out forwards;
+        }
+        .popup img {
+            width: 600px;
+            height: 360px;
+            margin: 10px auto;
+            border-radius: 10px;
+            display: block;
+            border-radius: 10px;
+        }
+        .popup p1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: '优设标题黑';
+        }
+        .popup p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-family: "华文中宋";
+            padding: 20px 30px 20px 30px;
+            text-align: justify;
+        }
+        .button:hover + .popup,
+        .popup:hover {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        @keyframes popupFadeIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="color.html">
+        <img src="img/叉.png" class="close-btn" alt="关闭">
+      </a>
+    <main class="table">
+        <section class="header">
+            <h1>正·玄色系</h1>
+            <!-- <div class="input-group">
+                <input type="search" placeholder="Search">
+                <img src="img/logo_search.png" alt=""> 
+            </div> -->
+        </section>
+        <section class="shell">
+            <table>
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>HEX</th>
+                        <th>RGB</th>
+                        <th>CMYK</th>
+                        <th>展示</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>黝黑</td>
+                    <td>#655756</td>
+                    <td>R:101  G:87  B:86</td>
+                    <td>C:56  M:58  Y:55  K:28</td>
+                    <td>
+                        <p class="button button1" style="background-color:#655756;">查看</p>
+                        <div class="popup">
+                            <p1>黝黑 - #655756</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;黝黑色是一种深沉如墨的纯黑色，浓郁厚重却不失光泽，如同无星之夜或历经岁月打磨的黑釉，透出庄重而神秘的东方美学意蕴。</p>
+                            <img src="img/黝黑.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>黯色</td>
+                    <td>#3f545b</td>
+                    <td>R:63  G:84  B:91</td>
+                    <td>C:76  M:55  Y:51  K:30</td>
+                    <td>
+                        <p class="button button1" style="background-color:#3f545b;">查看</p>
+                        <div class="popup">
+                            <p1>黯色 - #3f545b</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;黯色是一种深沉晦暗的灰黑色，如暮色四合时的天光，朦胧幽邃，既含墨色的浓重，又透出岁月沉淀的斑驳质感。</p>
+                            <img src="img/黯色.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>墨色</td>
+                    <td>#0b1611</td>
+                    <td>R:11  G:22  B:17</td>
+                    <td>C:77  M:63  Y:69  K:81</td>
+                    <td>
+                        <p class="button button1" style="background-color:#0b1611;">查看</p>
+                        <div class="popup">
+                            <p1>墨色 - #0b1611</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;墨色是一种浓重典雅的深黑色，如砚台中化开的松烟墨，既有墨锭的乌润光泽，又透出笔锋水痕的细微层次，沉淀着文人的书卷气息。</p>
+                            <img src="img/墨色.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>玄青</td>
+                    <td>#3b3a4e</td>
+                    <td>R:59  G:58  B:78</td>
+                    <td>C:77  M:73  Y:46  K:39</td>
+                    <td>
+                        <p class="button button1" style="background-color:#3b3a4e;">查看</p>
+                        <div class="popup">
+                            <p1>玄青 - #3b3a4e</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;玄青色是一种深邃而带有青调的墨黑色，如夜空尽头透出的暗蓝光泽，既含「玄」的幽远神秘，又具「青」的冷峻气息，似青铜器历经岁月后的沉静包浆。</p>
+                            <img src="img/玄青.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>乌黑</td>
+                    <td>#1c171a</td>
+                    <td>R:28  G:23  B:36</td>
+                    <td>C:71  M:70  Y:63  K:78</td>
+                    <td>
+                        <p class="button button1" style="background-color:#1c171a;">查看</p>
+                        <div class="popup">
+                            <p1>乌黑 - #1c171a</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乌黑色是一种浓郁纯粹的深黑色，如乌鸦羽毛般乌亮润泽，既厚重如漆，又泛着隐隐的光华，透出庄重而灵动的东方韵味。</p>
+                            <img src="img/乌黑.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>漆黑</td>
+                    <td>#0f0b0b</td>
+                    <td>R:15  G:11  B:11</td>
+                    <td>C:72  M:68  Y:66  K:85</td>
+                    <td>
+                        <p class="button button1" style="background-color:#0f0b0b;">查看</p>
+                        <div class="popup">
+                            <p1>漆黑 - #0f0b0b</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;漆黑是一种极致纯粹的深黑色，浓重如未化开的松烟墨，又似无月之夜吞噬一切光线的深渊，带有近乎压迫感的沉静与神秘。</p>
+                            <img src="img/漆黑.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>黛色</td>
+                    <td>#221b2d</td>
+                    <td>R:34  G:27  B:45</td>
+                    <td>C:80  M:80  Y:52  K:66</td>
+                    <td>
+                        <p class="button button1" style="background-color:#221b2d;">查看</p>
+                        <div class="popup">
+                            <p1>黛色 - #221b2d</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;黛色是一种青黑交融的沉静色调，似远山雾霭中透出的墨青，既有「黛石」画眉的幽深，又含烟岚浮动的朦胧诗意。</p>
+                            <img src="img/黛色.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>皂色</td>
+                    <td>#43403b</td>
+                    <td>R:67  G:64  B:59</td>
+                    <td>C:64  M:60  Y:64  K:49</td>
+                    <td>
+                        <p class="button button1" style="background-color:#43403b;">查看</p>
+                        <div class="popup">
+                            <p1>皂色 - #43403b</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;皂色是一种浓重而略带褐调的深黑色，如同皂角果实沉淀的暗沉色泽，既有草木染的自然朴拙，又透出历经岁月后的温润光泽。</p>
+                            <img src="img/皂色.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>苍黑</td>
+                    <td>#395260</td>
+                    <td>R:57  G:82  B:96</td>
+                    <td>C:41  M:15  Y:0  K:62</td>
+                    <td>
+                        <p class="button button1" style="background-color:#395260;">查看</p>
+                        <div class="popup">
+                            <p1>苍黑 - #395260</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苍黑色是一种深沉而带有青灰调的墨色，如暮色中的远山轮廓，既有苍茫的天穹之韵，又含黑铁的冷峻质感，透出古朴而雄浑的自然力量。</p>
+                            <img src="img/苍黑.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>钢青</td>
+                    <td>#142334</td>
+                    <td>R:20  G:35  B:52</td>
+                    <td>C:100  M:82  Y:51  K:64</td>
+                    <td>
+                        <p class="button button1" style="background-color:#142334;">查看</p>
+                        <div class="popup">
+                            <p1>钢青 - #142334</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;钢青色是一种冷峻而带有金属光泽的深青灰色，如淬火后的剑刃边缘，既含钢铁的凛冽质感，又泛出青靛般的幽暗锋芒，象征刚硬与锐利的极致结合。</p>
+                            <img src="img/钢青.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>沙鱼灰</td>
+                    <td>#35333C</td>
+                    <td>R:53  G:51  B:60</td>
+                    <td>C:76  M:70  Y:51  K:60</td>
+                    <td>
+                        <p class="button button1" style="background-color:#35333C;">查看</p>
+                        <div class="popup">
+                            <p1>沙鱼灰 - #35333C</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;沙鱼灰色是一种冷峻而带有青灰调的浅灰色，如同鲨鱼背部的暗哑色泽，既有深海生物的凛冽质感，又透出岩石般的粗粝气息，形成危险而静谧的自然隐喻。</p>
+                            <img src="img/鲨鱼灰.jpg">
+                        </div>
+                    </td>
+                </tbody>
+
+                <tbody>
+                    <td>河豚灰</td>
+                    <td>#393733</td>
+                    <td>R:57  G:55  B:51</td>
+                    <td>C:64  M:57  Y:60  K:67</td>
+                    <td>
+                        <p class="button button1" style="background-color:#393733;">查看</p>
+                        <div class="popup">
+                            <p1>河豚灰 - #393733</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;河豚灰色是一种微妙而带有浊调的浅灰褐色，如同河豚膨胀时腹部的斑驳表皮，既含沙砾的粗粝感，又透出生物特有的柔韧质地，在危险与呆萌之间形成奇妙的视觉平衡。</p>
+                            <img src="img/河豚灰.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>长石灰</td>
+                    <td>#363433</td>
+                    <td>R:54  G:52  B:51</td>
+                    <td>C:67  M:60  Y:57  K:68</td>
+                    <td>
+                        <p class="button button1" style="background-color:#363433;">查看</p>
+                        <div class="popup">
+                            <p1>长石灰 - #363433</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长石灰是一种沉稳而带有暖调的浅灰褐色，如同被岁月风化的石灰岩壁，既有矿物的干燥质感，又透出阳光长期曝晒后的微暖底色，形成质朴而耐看的中间色调。</p>
+                            <img src="img/长石灰.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>黑色</td>
+                    <td>#000000</td>
+                    <td>R:0  G:0  B:0</td>
+                    <td>C:75  M:68  Y:67  K:90</td>
+                    <td>
+                        <p class="button button1" style="background-color:#000000;">查看</p>
+                        <div class="popup">
+                            <p1>黑色 - #000000</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;黑色是最为深邃纯粹的色彩，如同没有星月的永夜或浓墨凝固的瞬间，能吞噬一切光线却又蕴含无限可能。它是所有颜色的终极归宿，也是所有色彩的潜在起源——在东方哲学中被称为「玄色」，既是终结，亦是太初。</p>
+                            <img src="img/黑色.jpg">
+                        </div>
+                    </td>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

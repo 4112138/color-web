@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>水资源数据</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/comon0.css">
+<style>
+  html {
+      height: 100%;
+  }
+  body {
+      width: 100%;
+      margin: 0;
+      overflow: auto;
+      background-image: url('picture/background.jpg'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+          z-index: 1000;
+      }
+  </style>
+</head>
+	<script>
+	$(window).load(function(){  
+            $(".loading").fadeOut()
+            })  
+			
+/****/
+$(document).ready(function(){
+	var whei=$(window).width()
+	$("html").css({fontSize:whei/20})
+	$(window).resize(function(){
+		var whei=$(window).width()
+	 $("html").css({fontSize:whei/20})
+});
+	});
+	</script>
+	<script type="text/javascript" src="js/echarts.min.js"></script> 
+	<script language="JavaScript" src="js/js.js"></script> 
+<body>
+<div class="canvas" style="opacity: .2">
+	<iframe frameborder="0" src="js/index.html" style="width: 100%; height: 100%"></iframe>
+	</div>
+<div class="loading">
+  <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+</div>
+<div class="head">
+  <h1><a style="color: rgb(0, 0, 0);font-family: '优设标题黑';font-size: 65px;">水资源数据可视化大屏</a></h1>	
+	<script>
+</script>
+	
+	
+</div>
+<div class="mainbox">
+  <a href="../home/data_home.html" id="close-link">
+    <img src="images/叉.png" class="close-btn" alt="关闭">
+  </a>
+  <ul class="clearfix">
+    
+    <li>
+      <div class="boxall" style="height: 3rem">
+        <div class="alltitle">2010-2023水资源总量(亿立方米)</div>
+        <div class="allnav" id="echart1"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3rem">
+        <div class="alltitle">2010-2023人均水资源量(立方米/人)</div>
+        <div class="allnav" id="echart2"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 4rem">
+        <div class="alltitle">水资源分布变化(亿立方米)</div>
+        <div class="allnav" id="echart3"></div>
+        <div class="boxfoot"></div>
+      </div>
+    </li>
+
+    <li>
+      <div class="bar">
+        <div class="barbox">
+          <ul class="clearfix">
+            <li class="pulll_left counter", >6</li>
+            <li class="pulll_left counter">25782.5</li>
+          </ul>
+        </div>
+        <div class="barbox2">
+          <ul class="clearfix">
+            <li class="pulll_left">中国水资源总量世界排名</li>
+            <li class="pulll_left">中国水资源总量(亿立方米)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="map">
+        <div class="map1"><img src="picture/lbx.png"></div>
+        <div class="map2"><img src="picture/jt.png"></div>
+        <div class="map4" id="map_1"></div>
+        <div class="review-number">审图号：GS（2024）0650号<br>国家地理信息公共服务平台</div>
+      </div>
+    </li>
+
+    <li>
+      <div class="boxall" style="height:3.4rem">
+        <div class="alltitle">主要河流生态治理总指数</div>
+        <div class="allnav" id="echart4"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3.2rem">
+        <div class="alltitle">2023年主要河流基本情况</div>
+        <div class="allnav" id="echart5"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3rem">
+        <div class="alltitle">2023年各行业用水量统计</div>
+        <div class="allnav" id="echart6"></div>
+        <div class="boxfoot"></div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="back"></div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/area_echarts.js"></script>
+<script>
+  // 添加调试代码，检查点击事件
+  $(document).ready(function(){
+      $("#close-link").on("click", function(e){
+          console.log("关闭按钮被点击，即将跳转到 ../home/data_home.html");
+          // 不阻止默认行为，允许跳转
+      });
+  });
+</script>
+</body>
+</html>

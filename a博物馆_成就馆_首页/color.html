@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颜色目录</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* background: url(img/back1.jpg) center / cover; */
+            /* background-color: rgb(243, 230, 241); */
+        }
+        h1 {
+            font-family: '千图厚黑体'; 
+            font-size: 50px; 
+            margin-top: 20px; 
+            margin-bottom: 20px; 
+            writing-mode: vertical-rl;
+            letter-spacing: 5px;
+            color: #3e3c3c;
+        }
+        .shell {
+            width: 90%;
+            height: 700px;
+            display: flex;
+        }
+        .box {
+            flex: 1;
+            overflow: hidden;
+            transition: .5s;
+            margin: 0 20px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
+            border-radius: 20px;
+            border: 10px solid #fff;
+            background-color: #fff;
+        }
+        .box>img{
+            width: 200%;
+            height: 85%;
+            object-fit: cover;
+            transition: .5s;
+        }
+        .box>span{
+            font: 200 30px '优设标题黑';
+            text-align: center;
+            height: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box:hover{
+            flex-basis: 40%;
+        }
+        .box:hover>img{
+            width: 100%;
+            height: 100%;
+        }
+        .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+      }
+      .navbar {
+            width: 100%;
+            height: 10%;
+            position: fixed;
+            top: 0;
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+            margin-left: 60px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-family: "优设标题黑";
+            font-size: 25px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: rgba(0, 123, 255, 0.3);
+        }
+        .logo {
+            width: 80px;
+            cursor: pointer;
+        }
+        .menu-icon {
+            width: 30px;
+            cursor: pointer;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+    <div class="navbar">
+        <img src="img/logo.png" class="logo" />
+        <nav>
+        <ul>
+            <li><a href="../home/home.html">首页</a></li>
+            <li><a href="..\a博物馆_成就馆_首页\achievement.html">五色|成就馆</a></li>
+            <li><a href="..\a历史馆\index copy.html">五色|历史馆</a></li>
+            <li><a href="..\a博物馆_成就馆_首页\color.html">五色|博物馆</a></li>
+            <li><a href="..\a应用馆\html\art_craft.html">五色|应用馆</a></li>
+            <li><a href="../home/data_home.html">五色|数据馆</a></li>
+        </ul>
+        </nav>
+        <img src="img/menu.png" class="menu-icon" />
+    </div>
+    <h1>五色博物馆</h1>
+    <div class="shell">
+        <div class="box" data-url="colorList_white.html">
+            <img src="img/white.jpg">
+            <span>正·白色系</span>
+        </div>
+        <div class="box" data-url="colorList_blue.html">
+            <img src="img/blue.jpg">
+            <span>正·青色系</span>
+        </div>
+        <div class="box" data-url="colorList_black.html">
+            <img src="img/black.jpg">
+            <span>正·玄色系</span>
+        </div>
+        <div class="box" data-url="colorList_red.html">
+            <img src="img/red.jpg">
+            <span>正·赤色系</span>
+        </div>
+        <div class="box" data-url="colorList_yellow.html">
+            <img src="img/yellow.jpg">
+            <span>正·黄色系</span>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.box').forEach(box => {
+            box.addEventListener('click', () => {
+                const url = box.getAttribute('data-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

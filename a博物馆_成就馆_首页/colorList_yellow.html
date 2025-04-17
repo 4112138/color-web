@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色系内部展示(黄)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: url(img/background_yellow.jpg) center / cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: '优设标题黑'; 
+            color: #c67915;
+            font-size: 45px;
+        }
+        main.table{
+            width: 82vw;
+            height: 90vh;
+            background-color: #fff5;
+            box-shadow: 0 8px 16px #0005;
+            border-bottom: 16px;
+            overflow: hidden;
+        }
+        .header {
+            width: 100%;
+            height: 10%;
+            background-color: #fff5;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .shell{
+            width: 95%;
+            max-height: calc(90% - 25px);
+            background-color: #fffb;
+            margin: 8px auto;
+            border-radius: 10px;
+            overflow: auto;
+        }
+        .shell::-webkit-scrollbar {
+            width:10px;
+            height: 10px;
+        }
+        table{
+            width: 100%;
+        }
+        td img{
+            width: 20px;
+            height: 36px;
+            margin-right: 10px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        table,
+        th,
+        td{
+            border-collapse: collapse;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-family: "华文中宋";
+            font-weight: 500;
+        }
+        thead th{
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #d5d1defe;
+            cursor: pointer;
+            z-index: 10;
+        }
+        tbody tr:nth-child(even){
+            background-color: #0000000b;
+        }
+        tbody tr:hover{
+            background-color: #fff6 !important;
+        }
+        .button {
+            cursor: pointer;
+            padding: 12px 40px;
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            text-align: justify;
+            width: 120px;
+            font-family: '优设标题黑';
+            font-size: 21px;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            width: 400px; /* 悬停时放大 */
+            height: 320px; /* 悬停时放大 */
+        }
+        .button:hover .tooltip img {
+            width: 300px; /* 图片放大 */
+            height: 240px; /* 图片放大 */
+        }
+        .button1{ color: #ffffff;}
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            opacity: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 40px #0002;
+            z-index: 1000;
+            text-align: center;
+            font-family: "华文中宋";
+            animation: popupFadeIn 0.3s ease-out forwards;
+        }
+        .popup img {
+            width: 600px;
+            height: 360px;
+            margin: 10px auto;
+            border-radius: 10px;
+            display: block;
+            border-radius: 10px;
+        }
+        .popup p1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: '优设标题黑';
+        }
+        .popup p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-family: "华文中宋";
+            padding: 20px 30px 20px 30px;
+            text-align: justify;
+        }
+        .button:hover + .popup,
+        .popup:hover {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        @keyframes popupFadeIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="color.html">
+        <img src="img/叉.png" class="close-btn" alt="关闭">
+      </a>
+    <main class="table">
+        <section class="header">
+            <h1>正·黄色系</h1>
+        </section>
+        <section class="shell">
+            <table>
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>HEX</th>
+                        <th>RGB</th>
+                        <th>CMYK</th>
+                        <th>展示</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>酪黄</td>
+                    <td>#f6dead</td>
+                    <td>R:246  G:222  B:173</td>
+                    <td>C:2  M:16  Y:39  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#f6dead;">查看</p>
+                        <div class="popup">
+                            <p1>酪黄 - #f6dead</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酪黄色，柔和且温暖，带有奶油般的细腻质感。象征着丰饶与温馨，常见于传统食品与织物中，营造出舒适与甜美的氛围。</p>
+                            <img src="img/酪黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>油菜花黄</td>
+                    <td>#fbda41</td>
+                    <td>R:251  G:218  B:65</td>
+                    <td>C:2  M:16  Y:84  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#fbda41;">查看</p>
+                        <div class="popup">
+                            <p1>油菜花黄 - #fbda41</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;油菜花黄，如同初春田野里盛开的油菜花，清新而灿烂，明亮的黄色在绿意盎然的田间如海浪般波动，散发着清新的气息与无尽的希望，仿佛是大自然送上的最纯粹的温暖与生机，勃勃生长，充满活力。</p>
+                            <img src="img/油菜花黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>柠檬黄</td>
+                    <td>#fcd337</td>
+                    <td>R:252  G:211  B:55</td>
+                    <td>C:0  M:20  Y:87  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#fcd337;">查看</p>
+                        <div class="popup">
+                            <p1>柠檬黄 - #fcd337</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;柠檬黄，如同初夏阳光下的清新柠檬，明亮而充满活力，散发着一股清爽的酸甜气息，清新又不失活力，带来一阵清凉与愉悦。</p>
+                            <img src="img/柠檬黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>雅梨黄</td>
+                    <td>#fbc82f</td>
+                    <td>R:251  G:200  B:47</td>
+                    <td>C:0  M:27  Y:88  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#fbc82f;">查看</p>
+                        <div class="popup">
+                            <p1>雅梨黄 - #fbc82f</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;雅梨黄，如同初秋时节成熟梨果的色泽，温润而柔和，散发着淡淡的甜香与清新，给人一种宁静、自然的舒适感，低调中透着优雅，恰如其分地展现着秋日的恬静与丰盈。</p>
+                            <img src="img/雅梨黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>蛋壳黄</td>
+                    <td>#f8c387</td>
+                    <td>R:248  G:195  B:135</td>
+                    <td>C:0  M:32  Y:52  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#f8c387;">查看</p>
+                        <div class="popup">
+                            <p1>蛋壳黄 - #f8c387</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;蛋壳黄，如同一枚新鲜鸡蛋的外壳，温暖而纯净散发出质朴而清新的气息，犹如大自然最简单、最真实的馈赠，温柔又恬静，带来一种朴实无华的宁静与安心。</p>
+                            <img src="img/蛋壳黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>枇杷黄</td>
+                    <td>#fca106</td>
+                    <td>R:252  G:161  B:6</td>
+                    <td>C:0  M:47  Y:92  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#fca106;">查看</p>
+                        <div class="popup">
+                            <p1>枇杷黄 - #fca106</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;枇杷黄，如同初夏时节成熟枇杷果的色泽，带着一丝金黄的柔和与清新，仿佛是阳光洒在果园中的那一抹亮丽，散发着甜美与清新的香气，既温暖又清爽，充满了生机与希望。</p>
+                            <img src="img/枇杷黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>草黄</td>
+                    <td>#d2b42c</td>
+                    <td>R:210  G:180  B:44</td>
+                    <td>C:17  M:27  Y:94  K:4</td>
+                    <td>
+                        <p class="button button1" style="background-color:#d2b42c;">查看</p>
+                        <div class="popup">
+                            <p1>草黄 - #d2b42c</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;草黄，透着春天的气息，柔和而清新，仿佛是初春嫩绿的草地上微微泛黄的草尖，带着自然的生机与温暖，低调却充满了勃勃的生命力，带来一丝清爽与宁静。</p>
+                            <img src="img/草黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>柘黄</td>
+                    <td>#c67915</td>
+                    <td>R:198  G:121  B:21</td>
+                    <td>C:20  M:60  Y:100  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#c67915;">查看</p>
+                        <div class="popup">
+                            <p1>柘黄 - #c67915</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;柘黄，凝聚着尊贵与庄严，深邃而华丽，宛如古代帝王龙袍上的黄锦，蕴含着皇家气派与历史的沉淀，温润的色泽中透着几分庄重与神秘，犹如古老王朝的辉煌，低调却无可忽视的威仪。</p>
+                            <img src="img/柘黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>硫华黄</td>
+                    <td>#f2ce2b</td>
+                    <td>R:242  G:206  B:43</td>
+                    <td>C:6  M:20  Y:92  K:1</td>
+                    <td>
+                        <p class="button button1" style="background-color:#f2ce2b;">查看</p>
+                        <div class="popup">
+                            <p1>硫华黄 - #f2ce2b</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;硫华黄，鲜艳而明亮，仿佛盛开的硫华菊在阳光下闪耀的色彩，浓烈中透着一丝清新的活力，带着自然的生命力与热情，犹如大地上最炽热的色彩，给人一种温暖而充满希望的感觉，既鲜活又富有张力。</p>
+                            <img src="img/硫华黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>佛手黄</td>
+                    <td>#fed71a</td>
+                    <td>R:254  G:215  B:26</td>
+                    <td>C:1  M:18  Y:94  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#fed71a;">查看</p>
+                        <div class="popup">
+                            <p1>佛手黄 - #fed71a</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;佛手黄，温暖而清新，宛如佛手柑的果实在阳光下散发出的柔和色泽，带着一丝柑橘的清香与天然的气息，透出一种宁静与清雅，既不张扬却又自带一种温润的贵气，仿佛是大自然馈赠的珍贵色彩，清新中充满了舒适与平和。</p>
+                            <img src="img/佛手黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>姜黄</td>
+                    <td>#e2c027</td>
+                    <td>R:226  G:192  B:39</td>
+                    <td>C:12  M:24  Y:95  K:2</td>
+                    <td>
+                        <p class="button button1" style="background-color:#e2c027;">查看</p>
+                        <div class="popup">
+                            <p1>姜黄 - #e2c027</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姜黄，鲜艳而温暖，仿佛新鲜生姜切开时透露出的金黄色泽，带着一丝辛辣与自然的清香，既有大地的朴实气息，又散发出一种独特的活力与热烈，仿佛是一种原始的力量，充满了温暖与生气。</p>
+                            <img src="img/姜黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>素馨黄</td>
+                    <td>#fccb16</td>
+                    <td>R:252  G:203  B:22</td>
+                    <td>C:0  M:24  Y:94  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#fccb16;">查看</p>
+                        <div class="popup">
+                            <p1>素馨黄 - #fccb16</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;素馨黄，柔和而清新，仿佛黄素馨花在清晨的露珠中悄然绽放的色彩，带着一丝甜美的香气与清新的气息，温暖中透着一份恬静与优雅，既不张扬却自带一股淡雅的韵味，犹如温柔的春风，轻轻拂过心头。</p>
+                            <img src="img/素馨黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>谷黄</td>
+                    <td>#e8b004</td>
+                    <td>R:232  G:176  B:4</td>
+                    <td>C:5  M:35  Y:99  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#e8b004;">查看</p>
+                        <div class="popup">
+                            <p1>谷黄 - #e8b004</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;谷黄，温润而沉静，仿佛秋收时节稻谷的金黄色泽，带着丰收的气息与自然的朴实，沉稳中透出一丝温暖与宁静，仿佛是大地在岁月流转中积淀的色彩，既富有生命力，又充满了丰盈与安定的气息。</p>
+                            <img src="img/谷黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>炒米黄</td>
+                    <td>#f4ce69</td>
+                    <td>R:244  G:206  B:105</td>
+                    <td>C:3  M:23  Y:69  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#f4ce69;">查看</p>
+                        <div class="popup">
+                            <p1>炒米黄 - #f4ce69</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;炒米黄，温暖而柔和，仿佛刚刚炒熟的米粒散发出的淡淡金色，带着一丝香脆与自然的醇厚，低调中透着一份朴实的温馨，仿佛大地上的一抹柔和光辉，既充满生机，又富有生活的质感，带来一种舒适与平和的氛围。</p>
+                            <img src="img/炒米黄.jpg">
+                        </div>
+                    </td>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

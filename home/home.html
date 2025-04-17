@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>五色文化网站首页</title>
+  </head>
+  <body>
+    <!-- 新加载动画 -->
+    <div class="whiskey-loader">
+      <svg class="loading" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        width="574.558px" height="190px" viewBox="0 0 574.558 120" enable-background="new 0 0 574.558 120" xml:space="preserve">
+        <defs>
+          <pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
+            <path fill="#fff" d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z"/>
+          </pattern>
+          <!-- 定义遮罩：字母白色（水流可见），背景黑色（水流不可见） -->
+          <mask id="text_mask">
+            <rect x="0" y="0" width="574.558" height="120" fill="#000"/> <!-- 背景黑色，遮挡水流 -->
+            <text x="-8.0684" y="116.7852" font-family="'Oswald', sans-serif" font-size="161.047" fill="#fff">LOADING</text> <!-- 字母白色，水流可见 -->
+          </mask>
+        </defs>
+        <!-- 水流通过遮罩，仅在字母区域显示 -->
+        <rect class="water-fill" mask="url(#text_mask)" fill="url(#water)" x="-400" y="0" width="1600" height="120"/>
+        <!-- 描边形式的红色文字，避免完全遮挡水流 -->
+        <text x="-8.0684" y="116.7852" font-family="'Oswald', sans-serif" font-size="161.047" fill="none" stroke="#e74c3c" stroke-width="2">LOADING</text>
+      </svg>
+    </div>
+
+    <!-- 主内容 -->
+    <div class="main-content">
+      <div class="container">
+        <div class="navbar">
+          <img src="img/logo.png" class="logo" />
+          <nav>
+            <ul>
+              <li><a href="home.html">首页</a></li>
+              <li><a href="..\a博物馆_成就馆_首页\achievement.html">五色|成就馆</a></li>
+              <li><a href="..\a历史馆\index copy.html">五色|历史馆</a></li>
+              <li><a href="..\a博物馆_成就馆_首页\color.html">五色|博物馆</a></li>
+              <li><a href="..\a应用馆\html\art_craft.html">五色|应用馆</a></li>
+              <li><a href="data_home.html">五色|数据馆</a></li>
+            </ul>
+          </nav>
+          <img src="img/menu.png" class="menu-icon" />
+        </div>
+        <div class="row">
+          <div class="col text-col">
+            <h1>天地秩序的彩衣<br></h1>
+            <h2> <br>
+              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;———中华传统色彩“五色观”</h2>
+            <br>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中华五色文化，源远流长，璀璨如星河。青、赤、黄、白、黑，五色交织，映照天地万物之灵韵。青色如春山初醒，生机勃发；赤色似夏日骄阳，热情如火；黄色若秋收硕果，富饶丰盈；白色如冬雪皑皑，纯净无瑕；黑色似夜幕深沉，神秘莫测。五色不仅是视觉的盛宴，更是中华文明的精神象征，承载着古人对自然的敬畏与对生命的礼赞，流转千年，依旧熠熠生辉。
+            </p>
+          </div>
+          <div class="col card-col">
+            <div class="card card1"><p1>新疆雅丹地貌五彩城</p1></div>
+            <div class="card card2"><p2>上海雪后豫园</p2></div>
+            <div class="card card3"><p1>冬天的长城</p1></div>
+            <div class="card card4"><p1>中国西北部沙漠</p1></div>
+            <div class="card card5"><p1>贵州绿色梯田</p1></div>
+            <div class="card card6"><p2>秋后的九寨沟</p2></div>
+          </div>
+        </div>
+      </div>
+    </div> 
+<script>
+  window.onload = function() {
+    // 检查是否已经访问过页面
+    if (!sessionStorage.getItem('isVisited')) {
+      // 设置访问标志
+      sessionStorage.setItem('isVisited', 'true');
+
+      // 显示 loading 动画
+      setTimeout(() => {
+        document.querySelector('.whiskey-loader').classList.add('fade-out');
+        document.querySelector('.main-content').classList.add('loaded');
+        setTimeout(() => {
+          document.querySelectorAll('.card').forEach(card => card.style.animationPlayState = 'running');
+        }, 500);
+      }, 2000); // 加载动画显示2秒
+    } else {
+      // 如果已经访问过，直接隐藏 loading 动画并显示主内容
+      document.querySelector('.whiskey-loader').style.display = 'none';
+      document.querySelector('.main-content').classList.add('loaded');
+      document.querySelectorAll('.card').forEach(card => card.style.animationPlayState = 'running');
+    }
+  }
+</script>
+  </body>
+</html>

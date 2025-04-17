@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五色观发展史</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        #back-to-top:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #back-to-top.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+      }
+        .shell {
+            width: 100%;
+            position: relative;
+            padding: 80px 0;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .shell:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(99, 99, 99, 0.8);
+            content: "";
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        .menu-icon { 
+            width: 30px; 
+            cursor: pointer; 
+            margin-left: 40px; 
+        }
+        .title {
+            color: #fff;
+            font-size: 80px;
+            font-weight: normal;
+            font-family: '优设标题黑';
+            margin: 0;
+        }
+
+        .timeline {
+            display: flex;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            flex-direction: column;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .content-title {
+            font-weight: normal;
+            font-size: 66px;
+            margin: -10px 0 0 0;
+            transition: 0.4s;
+            padding: 0 10px;
+            box-sizing: border-box;
+            color: #ffffff;
+            font-family: "千图厚黑体";
+            text-shadow: #000000;
+        }
+        
+        .content-desc {
+            margin: 0;
+            font-size: 18px;
+            box-sizing: border-box;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+            font-family: "华文中宋";
+            font-weight: 700;
+        }
+
+        .timeline:before {
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            margin-left: -1px;
+            content: "";
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .item {
+            padding: 40px 0;
+            opacity: 0.3;
+            filter: blur(2px);
+            transition: 0.5s;
+            box-sizing: border-box;
+            width: calc(50% - 40px);
+            display: flex;
+            position: relative;
+            transform: translateY(-80px);
+        }
+
+        .item:before {
+            /* 设置在伪元素before中的内容  */
+            content: attr(data-text);
+            letter-spacing: 5px;
+            width: 100%;
+            position: absolute;
+            color: rgb(255, 255, 255);
+            font-size: 40px !important;
+            border-left: 2px solid rgba(255, 255, 255, 0.5);
+            top: 70%;
+            margin-top: -5px;
+            padding-left: 15px;
+            opacity: 1;
+            right: calc(-100% - 56px);
+            font: 900 20px '';
+            letter-spacing: 5px;
+            font-family: "千图厚黑体";
+            font-weight: 400;
+            white-space: pre-wrap;
+        }
+
+        .item:nth-child(even) {
+            align-self: flex-end;
+        }
+
+        .item:nth-child(even):before {
+            right: auto;
+            text-align: right;
+            left: calc(-100% - 56px);
+            padding-left: 0;
+            border-left: none;
+            border-right: 2px solid rgba(255, 255, 255, 0.5);
+            padding-right: 15px;
+        }
+
+        .item--active {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        .item--active:before {
+            top: 50%;
+            transition: 0.3s all 0.2s;
+            opacity: 1;
+        }
+
+        .item--active .content-title {
+            margin: -50px 0 20px 0;
+        }
+
+        .img {
+            max-width: 100%;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .subtitle {
+            color: rgba(251, 251, 251, 0.5);
+            font-size: 28px;
+            letter-spacing: 5px;
+            font-family: "华文新魏";
+            margin: 10px 0 0 0;
+            font-weight: normal;
+        }
+
+        .footer {
+            padding: 95px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #999;
+            display: inline-block;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .item {
+                align-self: baseline !important;
+                width: 100%;
+                padding: 0 30px 150px 80px;
+            }
+
+            .item:before {
+                left: 10px !important;
+                padding: 0 !important;
+                top: 50px;
+                text-align: center !important;
+                width: 60px;
+                border: none !important;
+            }
+
+            .item:last-child {
+                padding-bottom: 40px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .timeline:before {
+                left: 40px;
+            }
+        }
+        .navbar {
+            height: 12%;
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+            margin-left: 60px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-family: "优设标题黑";
+            font-size: 25px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: rgba(0, 123, 255, 0.3); 
+        }
+        .logo {
+            width: 80px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="img_for_cs/logo.png" class="logo" />
+        <nav>
+          <ul>
+            <li><a href="../home/home.html">首页</a></li>
+            <li><a href="..\a博物馆_成就馆_首页\achievement.html">五色|成就馆</a></li>
+            <li><a href="..\a历史馆\index copy.html">五色|历史馆</a></li>
+            <li><a href="..\a博物馆_成就馆_首页\color.html">五色|博物馆</a></li>
+            <li><a href="..\a应用馆\html\art_craft.html">五色|应用馆</a></li>
+            <li><a href="../home/data_home.html">五色|数据馆</a></li>
+          </ul>
+        </nav>
+        <img src="img_for_cs/menu.png" class="menu-icon" />
+      </div>
+    <div class="shell" id="shell">
+        <a href="../home/home.html">
+            <img src="img_for_cs/叉.png" class="close-btn" alt="关闭">
+          </a>
+        <div class="header">
+            <h2 class="title">五色观发展史</h2>
+        </div>
+        <div class="timeline">
+            <div class="item" data-text="先秦时期：五色观的起源">
+                <div class="content">
+                    <img class="img" src="./img_for_cs/先秦1.jpg" />
+                    <h2 class="content-title">先秦</h2>
+                    <p class="content-desc">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五色观最早见于《尚书·洪范》，与五行、五方等概念相结合。《周礼》中记载五色用于礼仪，服饰和器物，体现了等级制度，五色被赋予象征意义，如黄色象征中央和尊贵，赤色象征吉样和权力。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先秦时期的祭祀活动中，五色也被广泛应用于礼器、服饰和祭祀场所。祭天时使用青色，祭地时使用黄色。贵族服饰开始使用五色，不同颜色象征不同的身份和等级。例如，黄色为尊贵色，常用于君主的服饰。平民服饰多为黑色或灰色，朴素低调，符合礼制要求。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先秦时期的军队旗帜颜色与五色观相关，不同颜色的旗帜象征不同的军队或方位。青色旗帜代表东方军队，赤色旗帜代表南方军队。将领的盔甲和武器上也常见五色装饰，尤其是高级将领的装备，颜色象征其地位和权力。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="秦汉时期：五色观的制度化">
+                <div class="content">
+                    <img class="img" src="./img_for_cs/秦朝3.jpg" />
+                    <h2 class="content-title">秦汉</h2>
+                    <p class="content-desc">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秦始皇统一六国后，推崇黑色为尊贵，黑色成为秦朝的主要用色，皇帝的服饰、宫殿装饰、旗帜等均以黑色为主。官服也以黑色为主，象征水德，其服饰简洁朴素，符合法家思想。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;汉朝初期推崇黄色，象征土德，黄色成为皇帝的专属色。汉武帝时期，赤色（红色）也逐渐成为尊贵色，广泛用于宫廷装饰和礼仪活动。汉朝官服颜色逐渐丰富，高官穿紫色或红色，低级官员穿绿色或青色，庶民穿黑色。 
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;汉宫殿建筑以黄色为主，象征土德。长安城的宫殿屋顶使用黄色琉璃瓦，祭天建筑使用青色。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="魏晋南北朝：五色观的艺术化">
+                <div class="content">
+                    <img class="img" src="./img_for_cs/魏晋1.jpg" />
+                    <h2 class="content-title">魏晋</h2>
+                    <p class="content-desc">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;魏晋时期，五色观在传承秦汉传统的基础上进一步演变发展。礼仪方面，五色的象征意义融入了更多玄学思想。祭祀典礼遵循特定的五色规制，不同祭礼环节对礼器、祭品包装颜色的使用都有严格区分，以契合阴阳五行与天地万物的联系。​
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贵族对五色的运用更加奢华，不仅用于日常着装，在重大场合还通过色彩搭配彰显家族地位与个人品味。紫色融合了赤色与黑色的庄重，成为高门士族钟爱的礼服颜色。普通百姓虽着装仍以素色为主，但在民俗节日或特定场合也会用五色元素点缀。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五色在军队旗帜与装备上的应用更加系统。白色旗帜象征休战或议和，黑色旗帜用于夜间突袭部队。将领的盔甲装饰也融入五行相生相克的理念，通过色彩搭配祈求胜利与平安。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="隋唐时期：五色观的繁荣">
+                <div class="content">
+                    <img class="img" src="./img_for_cs/唐朝7.jpg" />
+                    <h2 class="content-title">隋唐</h2>
+                    <p class="content-desc">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;隋唐时期，五色观仍然深刻影响着帝王统治的合法性。特别是“黄”色作为皇帝的专属色，象征中央土德，被用在龙袍、宫殿装饰和礼制中。唐代建立初期，因李渊自认为继承了周朝（五行属土）的正统，因此特别推崇“黄”色。到唐玄宗时期，黄袍正式成为皇帝专用，其他人不得僭越。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;隋唐的宫殿、庙宇、官署大量采用五色体系。唐长安城的宫殿屋顶以黄色琉璃瓦为主，而庙宇、寺庙则采用青色或黑色，符合五行色彩观的象征意义。朱雀门、玄武门等命名亦与五色相关（朱雀属火，玄武属水）。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;朝服、祭服也严格遵循五色观，如皇帝祭天时穿青色，祭地时穿黄色，祭祖宗时穿白色，符合五行对应关系。祭祀场所和礼器也依颜色区分，如天坛用青瓦（象征木，主春季），地坛用黄色（象征土，主中央）。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="宋元时期：五色观的精细化">
+                <div class="content">
+                    <img class="img" src="./img_for_cs/5.2.jpeg" />
+                    <h2 class="content-title">宋元</h2>
+                    <p class="content-desc">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;宋代，黄色为皇权专属，皇帝龙袍、宫殿屋顶及祭天服饰皆用黄色；赤色在官员服饰与宫殿装饰中凸显身份等级。建筑上，皇宫黄琉璃瓦，官署青瓦，民居黑或灰瓦，祭祀依五色：祭天青、祭地黄、祭宗庙白。宗教中，佛教僧侣着黄或灰袈裟，寺庙青或黑瓦顶；道教道士穿青或白道袍。​
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发展：宋代瓷器（如青瓷、白瓷）和织锦中，五色的运用达到极高水准。元代青花瓷以青色为主，体现了五色观的延续。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元代白色成皇族尊贵色，宫殿仍用黄琉璃瓦。宫殿黄瓦突出皇权，普通建筑多为青瓦或灰瓦，构建有序城市空间，体现等级秩序。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="明清时期：五色观的世俗化">
+                <div class="content">
+                    <img class="img" src="./img_for_cs/6.2.jpeg" />
+                    <h2 class="content-title">明清</h2>
+                    <p class="content-desc">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;明清时期，五色观在政治、官服与建筑等领域有着鲜明体现。明代，黄色为皇权象征，皇帝服饰及紫禁城宫殿屋顶多用明黄色与黄琉璃瓦。因国姓 “朱”，红色地位提升，广泛用于官方活动与建筑。官服依品级，一、二品绛紫，三、四品深红。紫禁城红墙黄瓦，天坛祈年殿蓝琉璃瓦，官方建筑多红色木柱。​
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;清代，黄色仍专属皇帝，龙袍与故宫屋顶黄色延续明代规制。红色传承尊贵，重要建筑及官府、府邸多用红色。满族崇尚白色，用于皇帝常服、朝珠及贵族祭祀、丧礼。官服一品、二品石青色，三品、四品蓝色。紫禁城红墙黄瓦不变，坛庙依五色祭祀，天坛蓝、地坛黄、日坛红、月坛白。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="近现代：五色观的传承与创新">
+                <div class="content">
+                    <img class="img" src="./img_for_cs/近现代4.jpg" />
+                    <h2 class="content-title">近现代</h2>
+                    <p class="content-desc">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;背景：近现代以来，五色观在传统文化和现代设计中得到传承和创新。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发展：传统节日、民俗活动中，五色仍然具有重要象征意义。现代设计中，五色被用于建筑、服装和视觉艺术。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;特点：五色观在保留传统的基础上，与现代文化相结合。
+                    </p>
+                </div>
+            </div>
+            <button id="back-to-top" onclick="scrollToTop()">↑</button>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        (function ($) {
+            $.fn.timeline = function () {
+                var selectors = {
+                    id: $(this),
+                    item: $(this).find(".item"),
+                    activeClass: "item--active",
+                    img: ".img"
+                };
+                // 将第一个时间轴项目激活，并设置时间轴背景图片为第一个项目的图片
+                selectors.item.eq(0).addClass(selectors.activeClass);
+                selectors.id.css(
+                    "background-image",
+                    "url(" +
+                    selectors.item
+                        .first()
+                        .find(selectors.img)
+                        .attr("src") +
+                    ")"
+                );
+                // 获取时间轴项目的总数
+                var itemLength = selectors.item.length;
+                // 当页面滚动时，触发滚动事件
+                $(window).scroll(function () {
+                    var max, min;
+                    // 获取页面滚动的距离
+                    var pos = $(this).scrollTop();
+                    selectors.item.each(function (i) {
+                        // 获取当前时间轴项目的最小和最大高度
+                        min = $(this).offset().top;
+                        max = $(this).height() + $(this).offset().top;
+                        var that = $(this);
+                        // 如果滚动到最后一个项目，并且超过了当前项目高度的一半，
+                        // 则将最后一个项目设置为激活状态，并设置背景图片为最后一个项目的图片
+                        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+                            selectors.item.removeClass(selectors.activeClass);
+                            selectors.id.css(
+                                "background-image",
+                                "url(" +
+                                selectors.item
+                                    .last()
+                                    .find(selectors.img)
+                                    .attr("src") +
+                                ")"
+                            );
+                            selectors.item.last().addClass(selectors.activeClass);
+                        }
+                        // 如果当前滚动位置在当前项目的最小和最大高度之间，
+                        // 则将当前项目设置为激活状态，并设置背景图片为当前项目的图片
+                        else if (pos <= max - 10 && pos >= min) {
+                            selectors.id.css(
+                                "background-image",
+                                "url(" +
+                                $(this)
+                                    .find(selectors.img)
+                                    .attr("src") +
+                                ")"
+                            );
+                            selectors.item.removeClass(selectors.activeClass);
+                            $(this).addClass(selectors.activeClass);
+                        }
+                    });
+                });
+            };
+        })(jQuery)
+        /*
+        最后，我们调用 timeline 插件并传入时间轴的 ID 作为参数。
+        这将启用时间轴插件并为该时间轴绑定滚动事件。
+        */
+        $("#shell").timeline();
+    </script>
+</body>
+
+</html>
+<script>
+    // 监听滚动事件，控制按钮显示
+    window.onscroll = function () {
+        var btn = document.getElementById("back-to-top");
+        if (document.documentElement.scrollTop > 300) {
+            btn.classList.add("show");
+        } else {
+            btn.classList.remove("show");
+        }
+    };
+
+    // 平滑滚动回到顶部
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+</script>

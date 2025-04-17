@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色系内部展示（白）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: url(img/background_white.jpg) center / cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: '优设标题黑'; 
+            color: #9b9ea0;
+            font-size: 45px;
+        }
+        main.table{
+            width: 82vw;
+            height: 90vh;
+            background-color: #fff5;
+            box-shadow: 0 8px 16px #0005;
+            border-bottom: 16px;
+            overflow: hidden;
+        }
+        .header{
+            width: 100%;
+            height: 10%;
+            background-color: #fff5;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .input-group{
+            width: 35%;
+            height: 50%;
+            background-color: #fff5;
+            padding: 0 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            transition: .2s;
+        }
+        .header .input-group:hover{
+            width: 45%;
+            background-color: #fff8;
+            box-shadow: 0 5px 40px #0002;
+        }
+        .header .input-group img{
+            width: 20px;
+            height: 20px;
+        }
+        .header .input-group input{
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        .shell{
+            width: 95%;
+            max-height: calc(90% - 25px);
+            background-color: #fffb;
+            margin: 8px auto;
+            border-radius: 10px;
+            overflow: auto;
+        }
+        .shell::-webkit-scrollbar {
+            width:10px;
+            height: 10px;
+        }
+        table{
+            width: 100%;
+        }
+        td img{
+            width: 20px;
+            height: 36px;
+            margin-right: 10px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        table,
+        th,
+        td{
+            border-collapse: collapse;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-family: "华文中宋";
+            font-weight: 500;
+        }
+        thead th{
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #d5d1defe;
+            cursor: pointer;
+            z-index: 10;
+        }
+        tbody tr:nth-child(even){
+            background-color: #0000000b;
+        }
+        tbody tr:hover{
+            background-color: #fff6 !important;
+        }
+        .button {
+            cursor: pointer;
+            padding: 12px 40px;
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            text-align: justify;
+            width: 120px;
+            font-family: '优设标题黑';
+            font-size: 21px;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            width: 400px; /* 悬停时放大 */
+            height: 320px; /* 悬停时放大 */
+        }
+        .button:hover .tooltip img {
+            width: 300px; /* 图片放大 */
+            height: 240px; /* 图片放大 */
+        }
+        .button1{ color: #000000;}
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            opacity: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 40px #0002;
+            z-index: 1000;
+            text-align: center;
+            font-family: "华文中宋";
+            animation: popupFadeIn 0.3s ease-out forwards;
+        }
+        .popup img {
+            width: 600px;
+            height: 360px;
+            margin: 10px auto;
+            border-radius: 10px;
+            display: block;
+            border-radius: 10px;
+        }
+        .popup p1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: '优设标题黑';
+        }
+        .popup p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-family: "华文中宋";
+            padding: 20px 30px 20px 30px;
+            text-align: justify;
+        }
+        .button:hover + .popup,
+        .popup:hover {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        @keyframes popupFadeIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="color.html">
+        <img src="img/叉.png" class="close-btn" alt="关闭">
+      </a>
+    <main class="table">
+        <section class="header">
+            <h1>正·白色系</h1>
+            <!-- <div class="input-group">
+                <input type="search" placeholder="Search">
+                <img src="img/logo_search.png" alt=""> 
+            </div> -->
+        </section>
+        <section class="shell">
+            <table>
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>HEX</th>
+                        <th>RGB</th>
+                        <th>CMYK</th>
+                        <th>展示</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>缟羽</td>
+                    <td>#efefef</td>
+                    <td>R:239  G:239  B:239</td>
+                    <td>C:0  M:0  Y:0  K:6</td>
+                    <td>
+                        <p class="button button1" style="background-color:#efefef;">查看</p>
+                        <div class="popup">
+                            <p1>缟羽 - #efefef</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;缟羽色是一种淡雅柔和的浅灰白色，灵感源自日本传统色名，类似白鹭羽毛的素净色调。</p>
+                            <img src="img/缟羽.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>凝脂</td>
+                    <td>#f5f2e9</td>
+                    <td>R:245  G:242  B:233</td>
+                    <td>C:0  M:1  Y:5  K:4</td>
+                    <td>
+                        <p class="button button1" style="background-color:#f5f2e9;">查看</p>
+                        <div class="popup">
+                            <p1>凝脂 - #f5f2e9</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;凝脂色是一种温润柔和的乳白色，如同凝固的油脂般细腻莹润，带有微微的暖调。</p>
+                            <img src="img/凝脂.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>浅云</td>
+                    <td>#eaeef1</td>
+                    <td>R:234  G:238  B:241</td>
+                    <td>C:3  M:1  Y:0  K:5</td>
+                    <td>
+                        <p class="button button1" style="background-color:#eaeef1;">查看</p>
+                        <div class="popup">
+                            <p1>浅云 - #eaeef1</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浅云色是一种淡雅柔和的浅灰白色，像薄云透日般朦胧素净，带有微妙的通透感。</p>
+                            <img src="img/浅云.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>二目鱼</td>
+                    <td>#dfe0d9</td>
+                    <td>R:223  G:224  B:217</td>
+                    <td>C:0  M:0  Y:3  K:12</td>
+                    <td>
+                        <p class="button button1" style="background-color:#dfe0d9;">查看</p>
+                        <div class="popup">
+                            <p1>二目鱼 - #dfe0d9</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二目鱼色是一种深沉而微带青灰的颜色，灵感源自鱼背的暗泽，既有沉稳的古典感，又透出幽邃的层次。</p>
+                            <img src="img/二目鱼.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>山矾</td>
+                    <td>#f5f3f2</td>
+                    <td>R:245  G:243  B:242</td>
+                    <td>C:0  M:1  Y:1  K:4</td>
+                    <td>
+                        <p class="button button1" style="background-color:#f5f3f2;">查看</p>
+                        <div class="popup">
+                            <p1>山矾 - #f5f3f2</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;山矾色是一种清透柔和的淡青白色，似早春山矾花瓣的素雅色泽，带有微凉的草木气息。</p>
+                            <img src="img/山矾.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>影青</td>
+                    <td>#bdcbd2</td>
+                    <td>R:189  G:203  B:210</td>
+                    <td>C:10  M:3  Y:0  K:18</td>
+                    <td>
+                        <p class="button button1" style="background-color:#bdcbd2;">查看</p>
+                        <div class="popup">
+                            <p1>影青 - #bdcbd2</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;影青色是一种淡雅莹澈的浅青白色，如瓷釉透光时的朦胧青影，兼具玉石的温润与冰釉的清透。</p>
+                            <img src="img/影青.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>白青</td>
+                    <td>#98b6c2</td>
+                    <td>R:152  G:182  B:194</td>
+                    <td>C:22  M:6  Y:0  K:24</td>
+                    <td>
+                        <p class="button button1" style="background-color:#98b6c2;">查看</p>
+                        <div class="popup">
+                            <p1>白青 - #98b6c2</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;白青色是一种清冷莹澈的浅青白色，似雪覆远山时透出的淡青底色，既有霜雪的洁净，又含青空的微凉。</p>
+                            <img src="img/白青.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>米汤娇</td>
+                    <td>#eeead9</td>
+                    <td>R:238  G:234  B:217</td>
+                    <td>C:0  M:2  Y:9  K:7</td>
+                    <td>
+                        <p class="button button1" style="background-color:#eeead9;">查看</p>
+                        <div class="popup">
+                            <p1>米汤娇 - #eeead9</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;米汤娇是一种温润柔和的淡黄白色，如同米汤般莹润微透，泛着淡淡的暖意，既素雅又透着生活气息。</p>
+                            <img src="img/米汤娇.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>青鸾</td>
+                    <td>#9aa7b1</td>
+                    <td>R:154  G:167  B:177</td>
+                    <td>C:13  M:6  Y:0  K:31</td>
+                    <td>
+                        <p class="button button1" style="background-color:#9aa7b1;">查看</p>
+                        <div class="popup">
+                            <p1>青鸾 - #9aa7b1</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;青鸾色是一种清丽深邃的蓝绿色，灵感源自神话中青鸾神鸟的羽色，既有碧空的澄澈，又含翠羽的华彩，透出灵秀仙逸之气。</p>
+                            <img src="img/青鸾.jpg">
+                        </div>
+                    </td>
+                    <tbody>
+                        <td>精白</td>
+                        <td>#FFFFFF</td>
+                        <td>R:255  G:255  B:255</td>
+                        <td>C:0  M:0  Y:0  K:0</td>
+                        <td>
+                            <p class="button button1" style="background-color:#FFFFFF;">查看</p>
+                            <div class="popup">
+                                <p1>精白 - #FFFFFF</p1>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;精白色是一种纯净无瑕的冷调亮白，如新雪覆野或素瓷无釉的极致净色，不掺丝毫杂色，象征至简至臻的东方美学意境。</p>
+                                <img src="img/精白.jpg">
+                            </div>
+                        </td>
+                    </tbody>
+                    <tbody>
+                        <td>象牙白</td>
+                        <td>#FFFBF0</td>
+                        <td>R:255  G:251  B:240</td>
+                        <td>C:0  M:2  Y:6  K:0</td>
+                        <td>
+                            <p class="button button1" style="background-color:#FFFBF0;">查看</p>
+                            <div class="popup">
+                                <p1>象牙白 - #FFFBF0</p1>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;象牙白是一种温润柔和的乳白色，泛着淡淡的暖黄调，如同象牙天然细腻的质地，既典雅高贵又不失柔和自然。</p>
+                                <img src="img/象牙白.jpg">
+                            </div>
+                        </td>
+                    </tbody>
+                    <tbody>
+                        <td>雪白</td>
+                        <td>#F2FDFF</td>
+                        <td>R:242  G:253  B:255</td>
+                        <td>C:5  M:1  Y:0  K:0</td>
+                        <td>
+                            <p class="button button1" style="background-color:#F2FDFF;">查看</p>
+                            <div class="popup">
+                                <p1>雪白 - #F2FDFF</p1>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;雪白色是一种纯净冷冽的亮白色，如新雪覆地般不染纤尘，泛着清冷的微光，象征极致的洁净与空灵。</p>
+                                <img src="img/雪白.jpg">
+                            </div>
+                        </td>
+                    </tbody>
+                    <tbody>
+                        <td>月白</td>
+                        <td>#D6ECF0</td>
+                        <td>R:214  G:236  B:240</td>
+                        <td>C:11  M:2  Y:0  K:6</td>
+                        <td>
+                            <p class="button button1" style="background-color:#D6ECF0;">查看</p>
+                            <div class="popup">
+                                <p1>月白 - #D6ECF0</p1>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月白色是一种清冷柔和的淡蓝白色，似月光洒落夜空时透出的微蓝光晕，既有霜色的洁净，又含天穹的静谧。</p>
+                                <img src="img/月白.jpg">
+                            </div>
+                        </td>
+                    </tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 加载动画容器 */
+.whiskey-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to left, #1a1a1a, #000000); /* 黑色渐变 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  overflow: hidden;
+}
+
+.whiskey-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 新加载动画样式 */
+.loading {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 6px;
+}
+
+/* 确保SVG文字使用Oswald字体 */
+.loading text {
+  font-family: 'Oswald', sans-serif !important;
+}
+
+.water-fill {
+  animation: wave 0.7s infinite linear, 
+             fill-up 3s ease-out forwards; /* 改为3秒，单向填充 */
+}
+
+@keyframes wave {
+  0% { x: -400px; }
+  100% { x: 0; }
+}
+
+@keyframes fill-up {
+  0% { height: 0; y: 130px; } /* 从底部开始 */
+  100% { height: 160px; y: -30px; } /* 填充到顶部 */
+}
+
+/* 主内容和卡片淡入动画 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.main-content {
+  opacity: 0;
+}
+
+.main-content.loaded {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/back_home.png);
+  background-position: center;
+  background-size: cover;
+  padding-left: 8%;
+  padding-right: 8%;
+  box-sizing: border-box;
+}
+
+.navbar {
+  height: 12%;
+  display: flex;
+  align-items: center;
+}
+
+.logo { width: 80px; cursor: pointer; }
+.menu-icon { width: 30px; cursor: pointer; margin-left: 40px; }
+nav { flex: 1; text-align: right; }
+nav ul li { list-style: none; display: inline-block; margin-left: 60px; }
+nav ul li a { text-decoration: none; color: #fff; font-family: "优设标题黑"; font-size: 25px;      transition: color 0.3s ease;
+}
+nav ul li a:hover {
+    color: rgba(0, 123, 255, 0.3); 
+}
+
+.row { display: flex; height: 88%; align-items: center; margin-left: 100px; }
+.col { flex-basis: 55%; margin-left: 100px; }
+h1 { color: #fff; font-size: 90px; font-family: "华文新魏"; margin-top: -50px !important; }
+h2 { color: #fff; font-size: 40px; font-family: "华文中宋"; margin-top: -50px !important; }
+p { color: #fff; font-size: 20px; line-height: 25px; font-family: "华文中宋"; line-height: 2; }
+p1 { color: #fff; font-size: 15px; line-height: 25px; font-family: "华文中宋"; line-height: 2; }
+p2 { color: #000000; font-size: 15px; line-height: 25px; font-family: "华文中宋"; line-height: 2; }
+
+.card {
+  width: 240px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 10px 15px;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.3s ease; /* 统一过渡属性到基础样式 */
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-play-state: running; 
+}
+
+.card:hover {
+  transform: scale(1.1); /* 放大到110% */
+}
+
+.card1 { background-image: url(img/pic-1.png); animation-delay: 0.3s; }
+.card2 { background-image: url(img/pic-1.jpg); animation-delay: 0.5s; }
+.card3 { background-image: url(img/pic-3.jpg); animation-delay: 0.7s; }
+.card4 { background-image: url(img/pic-4.jpg); animation-delay: 0.9s; }
+.card5 { background-image: url(img/pic-5.jpg); animation-delay: 1.1s; }
+.card6 { background-image: url(img/pic-6.jpg); animation-delay: 1.3s; }
+
+/* 定义淡入动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h5 { color: #fff; text-shadow: 0 0 5px #999; }
+.card p { text-shadow: 0 0 5px #000; font-size: 8px; }
+.text-col { flex-basis: 53%; margin-left: -50px; }
+.card-col { flex-basis: 50%; }

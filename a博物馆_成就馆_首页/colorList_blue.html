@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色系内部展示（蓝）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: url(img/background_blue.jpg) center / cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: '优设标题黑'; 
+            color: #1585c6;
+            font-size: 45px;
+        }
+        main.table {
+            width: 82vw;
+            height: 90vh;
+            background-color: #fff5;
+            box-shadow: 0 8px 16px #0005;
+            border-bottom: 16px;
+            overflow: hidden;
+        }
+        .header {
+            width: 100%;
+            height: 10%;
+            background-color: #fff5;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .shell{
+            width: 95%;
+            max-height: calc(90% - 25px);
+            background-color: #fffb;
+            margin: 8px auto;
+            border-radius: 10px;
+            overflow: auto;
+        }
+        .shell::-webkit-scrollbar {
+            width:10px;
+            height: 10px;
+        }
+        table{
+            width: 100%;
+        }
+        td img{
+            width: 20px;
+            height: 36px;
+            margin-right: 10px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        table,
+        th,
+        td{
+            border-collapse: collapse;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-family: "华文中宋";
+            font-weight: 500;
+        }
+        thead th{
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #d5d1defe;
+            cursor: pointer;
+            z-index: 10;
+        }
+        tbody tr:nth-child(even){
+            background-color: #0000000b;
+        }
+        tbody tr:hover{
+            background-color: #fff6 !important;
+        }
+        .button {
+            cursor: pointer;
+            padding: 12px 40px;
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            text-align: justify;
+            width: 120px;
+            font-family: '优设标题黑';
+            font-size: 21px;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            width: 400px; /* 悬停时放大 */
+            height: 320px; /* 悬停时放大 */
+        }
+        .button:hover .tooltip img {
+            width: 300px; /* 图片放大 */
+            height: 240px; /* 图片放大 */
+        }
+        .button1{ color: #ffffff;}
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            opacity: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 40px #0002;
+            z-index: 1000;
+            text-align: center;
+            font-family: "华文中宋";
+            animation: popupFadeIn 0.3s ease-out forwards;
+        }
+        .popup img {
+            width: 600px;
+            height: 360px;
+            margin: 10px auto;
+            border-radius: 10px;
+            display: block;
+            border-radius: 10px;
+        }
+        .popup p1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: '优设标题黑';
+        }
+        .popup p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-family: "华文中宋";
+            padding: 20px 30px 20px 30px;
+            text-align: justify;
+        }
+        .button:hover + .popup,
+        .popup:hover {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        @keyframes popupFadeIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="color.html">
+        <img src="img/叉.png" class="close-btn" alt="关闭">
+    </a>
+    <main class="table">
+        <section class="header">
+            <h1>正·青色系</h1>
+        </section>
+        <section class="shell">
+            <table>
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>HEX</th>
+                        <th>RGB</th>
+                        <th>CMYK</th>
+                        <th>展示</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>远天蓝</td>
+                    <td>#d0dfe6</td>
+                    <td>R:208  G:223  B:230</td>
+                    <td>C:25  M:6  Y:10  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#d0dfe6;">查看</p>
+                        <div class="popup">
+                            <p1>远天蓝 - #d0dfe6</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远天蓝色，柔和且清新，带有淡淡的蓝色调。象征着宁静与广阔，传递出宁静与广阔的氛围。</p>
+                            <img src="img/远山蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>星蓝</td>
+                    <td>#93b5cf</td>
+                    <td>R:147  G:181  B:207</td>
+                    <td>C:53  M:19  Y:15  K:1</td>
+                    <td>
+                        <p class="button button1" style="background-color:#93b5cf;">查看</p>
+                        <div class="popup">
+                            <p1>星蓝 - #93b5cf</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;星蓝色（Stellar Blue）是一种深邃而神秘的蓝色，带有微妙的灰紫调，仿佛夜空中闪烁星辰的冷静光辉。</p>
+                            <img src="img/星蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>羽扇豆蓝</td>
+                    <td>#619ac3</td>
+                    <td>R:97  G:154  B:195</td>
+                    <td>C:74  M:27  Y:16  K:2</td>
+                    <td>
+                        <p class="button button1" style="background-color:#619ac3;">查看</p>          
+                        <div class="popup">
+                            <p1>羽扇豆蓝 - #619ac3</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;羽扇豆蓝是一种介于天蓝与靛蓝之间的清冷色调，带有大自然气息，常见于羽扇豆花田和晴朗天空。</p>
+                            <img src="img/羽扇豆蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>钴蓝</td>
+                    <td>#1a94bc</td>
+                    <td>R:26  G:148  B:188</td>
+                    <td>C:94  M:16  Y:23  K:3</td>
+                    <td>
+                        <p class="button button1" style="background-color:#1a94bc;">查看</p>   
+                        <div class="popup">
+                            <p1>钴蓝 - #1a94bc</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;钴蓝（Cobalt Blue）是一种明亮而浓郁的纯正蓝色，带有微微冷调，因钴元素的氧化物而得名，常用于绘画颜料与陶瓷釉彩，展现深邃且富有张力的视觉效果。</p>
+                            <img src="img/钴蓝.jpg">
+                        </div>                 
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>飞燕草蓝</td>
+                    <td>#0f59a4</td>
+                    <td>R:15  G:89  B:164</td>
+                    <td>C:100  M:65  Y:11  K:1</td>
+                    <td>
+                        <p class="button button1" style="background-color:#0f59a4;">查看</p>
+                        <div class="popup">
+                            <p1>飞燕草蓝 - #0f59a4</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;飞燕草蓝（Delphinium Blue）是一种清亮高雅的蓝色，介于浅蓝与深蓝之间，灵感来自飞燕草花瓣的纯净色泽，带有一丝紫调，展现出柔和而富有生命力的美感。</p>
+                            <img src="img/飞燕草蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>釉蓝</td>
+                    <td>#1781b5</td>
+                    <td>R:23  G:129  B:181</td>
+                    <td>C:96  M:34  Y:18  K:4</td>
+                    <td>
+                        <p class="button button1" style="background-color:#1781b5;">查看</p>
+                        <div class="popup">
+                            <p1>釉蓝 - #1781b5</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;釉蓝（Glaze Blue）是一种深邃而温润的蓝色，灵感来源于青花瓷与琉璃釉面的色泽，介于群青与钴蓝之间，透出典雅沉静的东方韵味。</p>
+                            <img src="img/釉蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>搪磁蓝</td>
+                    <td>#11659a</td>
+                    <td>R:210  G:180  B:44</td>
+                    <td>C:17  M:27  Y:94  K:4</td>
+                    <td>
+                        <p class="button button1" style="background-color:#11659a;">查看</p>
+                        <div class="popup">
+                            <p1>搪磁蓝 - #11659a</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搪瓷蓝（Enamel Blue）是一种明亮而略带光泽的蓝色，介于钴蓝和湖蓝之间，灵感源自搪瓷制品的光滑釉面，呈现出复古而富有质感的视觉效果。</p>
+                            <img src="img/搪瓷蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>鷃蓝</td>
+                    <td>#144a74</td>
+                    <td>R:20  G:74  B:116</td>
+                    <td>C:100  M:68  Y:32  K:20</td>
+                    <td>
+                        <p class="button button1" style="background-color:#144a74;">查看</p>
+                        <div class="popup">
+                            <p1>鷃蓝 - #144a74</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鷃蓝色（Yàn Blue）是一种深邃而沉静的蓝色，带有一丝灰调，灵感源自鷃鸟羽毛的低调冷峻之美，既内敛又富有质感。</p>
+                            <img src="img/晏蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>鸽蓝</td>
+                    <td>#1c2938</td>
+                    <td>R:28  G:41  B:56</td>
+                    <td>C:100  M:77  Y:50  K:62</td>
+                    <td>
+                        <p class="button button1" style="background-color:#1c2938;">查看</p>
+                        <div class="popup">
+                            <p1>鸽蓝 - #1c2938</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸽蓝，清冷而柔和，宛如晨曦下鸽羽上泛起的淡淡蓝灰，沉静中透着一丝优雅，轻盈却不失深邃，仿佛微风拂过云影，带来一抹宁静与安然，低调而含蓄，映射出一种温润的从容之美。</p>
+                            <img src="img/鸽蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>靛青</td>
+                    <td>#1661ab</td>
+                    <td>R:22  G:97  B:171</td>
+                    <td>C:100  M:60  Y:8  K:1</td>
+                    <td>
+                        <p class="button button1" style="background-color:#1661ab;">查看</p>
+                        <div class="popup">
+                            <p1>靛青 - #1661ab</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;靛青，深邃而神秘，仿佛夜幕降临时天空与海洋交汇的幽蓝，沉静中透着理性与深思，既有青色的清冷，又融入蓝色的深远，犹如流淌在古老染坊中的靛蓝染液，在时光中沉淀出隽永的韵味，低调而富有力量。</p>
+                            <img src="img/靛青.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>虹蓝</td>
+                    <td>#2177b8</td>
+                    <td>R:33  G:119  B:184</td>
+                    <td>C:99  M:44  Y:10  K:1</td>
+                    <td>
+                        <p class="button button1" style="background-color:#2177b8;">查看</p>
+                        <div class="popup">
+                            <p1>虹蓝 - #2177b8</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虹蓝，澄澈而灵动，宛如雨后彩虹中最纯净的一抹蓝光，明亮中透着一丝神秘，仿佛清晨湖面上泛起的微光，既有天空的辽远，又带着水波的轻盈，清新而富有生机，映射出大自然最梦幻的色彩。</p>
+                            <img src="img/虹蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>秋波蓝</td>
+                    <td>#8abcd1</td>
+                    <td>R:138  G:188  B:209</td>
+                    <td>C:59  M:12  Y:19  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color:#8abcd1;">查看</p>
+                        <div class="popup">
+                            <p1>秋波蓝 - #8abcd1</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秋波蓝，清澈而灵动，仿佛微风拂过湖面泛起的粼粼波光，轻盈中透着一丝宁静，淡雅却不失生机，映照着天空的湛蓝与流水的柔和，宛如一曲悠然流淌的诗篇，令人心生恬淡与安然。</p>
+                            <img src="img/水波蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>碧青</td>
+                    <td>#5cb3cc</td>
+                    <td>R:92  G:179  B:204</td>
+                    <td>C:67  M:60  Y:57  K:68</td>
+                    <td>
+                        <p class="button button1" style="background-color:#5cb3cc;">查看</p>
+                        <div class="popup">
+                            <p1>碧青 - #5cb3cc</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;碧青，凝练而典雅，宛如一件古老艺术品上蕴藏的深邃色彩，温润而又清澈，仿佛岁月雕刻下的痕迹，透出一股悠远的气息与独特的韵味，犹如翡翠的光泽在光影中流转，低调中展现出非凡的艺术气质与历史的积淀。</p>
+                            <img src="img/碧青.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>闪蓝</td>
+                    <td>#7cabb1</td>
+                    <td>R:124  G:171  B:177</td>
+                    <td>C:64  M:18  Y:32  K:2</td>
+                    <td>
+                        <p class="button button1" style="background-color:#7cabb1;">查看</p>
+                        <div class="popup">
+                            <p1>闪蓝 - #7cabb1</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;闪蓝，如同蝴蝶翅膀上闪烁的蓝光，璀璨而轻盈，带着一丝梦幻的光辉，仿佛是微风中舞动的翅膀在阳光下划过，流转着清冷与灵动的气息，既神秘又充满生命力，像蝴蝶翩跹飞舞时留下的光影，令人心醉神迷。</p>
+                            <img src="img/闪蓝.jpg">
+                        </div>
+                    </td>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

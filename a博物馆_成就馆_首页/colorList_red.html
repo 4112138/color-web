@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色系内部展示（红）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: url(img/background_red.jpg) center / cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        h1 {
+            font-family: '优设标题黑'; 
+            color: #ce2d21;
+            font-size: 45px;
+        }
+        main.table{
+            width: 82vw;
+            height: 90vh;
+            background-color: #fff5;
+            box-shadow: 0 8px 16px #0005;
+            border-bottom: 16px;
+            overflow: hidden;
+        }
+        .header{
+            width: 100%;
+            height: 10%;
+            background-color: #fff5;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .shell{
+            width: 95%;
+            max-height: calc(90% - 25px);
+            background-color: #fffb;
+            margin: 8px auto;
+            border-radius: 10px;
+            overflow: auto;
+        }
+        .shell::-webkit-scrollbar {
+            width:10px;
+            height: 10px;
+        }
+        table{
+            width: 100%;
+        }
+        td img{
+            width: 20px;
+            height: 36px;
+            margin-right: 10px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        table,
+        th,
+        td{
+            border-collapse: collapse;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-family: "华文中宋";
+            font-weight: 500;
+        }
+        thead th{
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #d5d1defe;
+            cursor: pointer;
+            z-index: 10;
+        }
+        tbody tr:nth-child(even){
+            background-color: #0000000b;
+        }
+        tbody tr:hover{
+            background-color: #fff6 !important;
+        }
+        .button {
+            cursor: pointer;
+            padding: 12px 40px;
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            text-align: justify;
+            width: 120px;
+            font-family: '优设标题黑';
+            font-size: 21px;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            width: 400px; /* 悬停时放大 */
+            height: 320px; /* 悬停时放大 */
+        }
+        .button:hover .tooltip img {
+            width: 300px; /* 图片放大 */
+            height: 240px; /* 图片放大 */
+        }
+        .button1{ color: #ffffff;}
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            opacity: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 40px #0002;
+            z-index: 1000;
+            text-align: center;
+            font-family: "华文中宋";
+            animation: popupFadeIn 0.3s ease-out forwards;
+        }
+        .popup img {
+            width: 600px;
+            height: 360px;
+            margin: 10px auto;
+            border-radius: 10px;
+            display: block;
+            border-radius: 10px;
+        }
+        .popup p1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: '优设标题黑';
+        }
+        .popup p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-family: "华文中宋";
+            padding: 20px 30px 20px 30px;
+            text-align: justify;
+        }
+        .button:hover + .popup,
+        .popup:hover {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        @keyframes popupFadeIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="color.html">
+        <img src="img/叉.png" class="close-btn" alt="关闭">
+    </a>
+    <main class="table">
+        <section class="header">
+            <h1>正·赤色系</h1>
+        </section>
+        <section class="shell">
+            <table>
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>HEX</th>
+                        <th>RGB</th>
+                        <th>CMYK</th>
+                        <th>展示</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>桃红</td>
+                    <td>#f0ada0</td>
+                    <td>R:240  G:173  B:160</td>
+                    <td>C:0  M:44  Y:32  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #f0ada0;">查看</p>
+                        <div class="popup">
+                            <p1>桃红 - #f0ada0</h好>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;桃红，如三月桃花初绽时的娇嫩，似胭脂晕染、又若朝霞轻抹，温柔里透着一丝明艳，是春天最甜美的颜色。</p>
+                            <img src="img/桃红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>晨曦红</td>
+                    <td>#ea8958</td>
+                    <td>R:234  G:137  B:88</td>
+                    <td>C:0  M:58  Y:67  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #ea8958;">查看</p>
+                        <div class="popup">
+                            <p1>晨曦红 - #ea8958</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晨曦红（Dawn Red）是一种温暖柔和的红色，仿若晨曦初现时天空泛起的淡淡红晕，充满希望与宁静之美。</p>
+                            <img src="img/晨曦红2.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>朱红</td>
+                    <td>#ed5126</td>
+                    <td>R:237  G:81  B:38</td>
+                    <td>C:0  M:78  Y:83  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #ed5126;">查看</p>
+                        <div class="popup">
+                            <p1>朱红 - #ed5126</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;朱红（Vermilion）是一种明艳而浓烈的红色，带有微微橙调，古今皆用于绘画、器物与建筑，象征热情与吉祥。</p>
+                            <img src="img/朱红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>陶瓷红</td>
+                    <td>#e16723</td>
+                    <td>R:225  G:103  B:35</td>
+                    <td>C:0  M:70  Y:91  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #e16723;">查看</p>
+                        <div class="popup">
+                            <p1>陶瓷红 - #e16723</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;陶瓷红（Ceramic Red）是一种富有光泽且略带柔和温暖感的红色，源自陶瓷釉料的经典色调，呈现出一种既古朴又充满艺术气息的独特魅力。</p>
+                            <img src="img/陶瓷红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>落霞红</td>
+                    <td>#cf4813</td>
+                    <td>R:207  G:72  B:19</td>
+                    <td>C:4  M:82  Y:99  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #cf4813;">查看</p>
+                        <div class="popup">
+                            <p1>落霞红 - #cf4813</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;落霞红（Afterglow Red）是一种温暖而柔和的红色，宛如夕阳西下时天边那抹渐渐消散的霞光，充满了宁静与浪漫的气息。</p>
+                            <img src="img/落霞红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>鹅血石红</td>
+                    <td>#ab372f</td>
+                    <td>R:171  G:55  B:47</td>
+                    <td>C:19  M:89  Y:85  K:9</td>
+                    <td>
+                        <p class="button button1" style="background-color: #ab372f;">查看</p>
+                        <div class="popup">
+                            <p1>鹅血石红 - #ab372f</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鹅血石红，如霞光映照大地，温润而深邃，宛若晨曦中的第一抹温柔，蕴含着岁月的静谧与深情。</p>
+                            <img src="img/鹅血石红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>枣红</td>
+                    <td>#7c1823</td>
+                    <td>R:124  G:24  B:35</td>
+                    <td>C:28  M:100  Y:86  K:33</td>
+                    <td>
+                        <p class="button button1" style="background-color: #7c1823;">查看</p>
+                        <div class="popup">
+                            <p1>枣红 - #7c1823</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;枣红，色泽浓郁深沉，犹如熟透的枣果在秋阳下的静谧光辉，散发出一种温暖、沉稳的气质，仿佛承载着岁月的厚重与岁月的芬芳。</p>
+                            <img src="img/枣红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>殷红</td>
+                    <td>#82111f</td>
+                    <td>R:130  G:17  B:31</td>
+                    <td>C:27  M:100  Y:90  K:29</td>
+                    <td>
+                        <p class="button button1" style="background-color: #82111f;">查看</p>
+                        <div class="popup">
+                            <p1>殷红 - #82111f</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;殷红，宛如燃烧的晚霞，在苍穹中缓缓绽放，深邃而不张扬，带着一丝神秘与热烈，温暖而不炽烈，仿佛诉说着岁月中无声的故事与深藏的情感。</p>
+                            <img src="img/殷红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>藏花红</td>
+                    <td>#ec2d7a</td>
+                    <td>R:236  G:45  B:122</td>
+                    <td>C:0  M:88  Y:23  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #ec2d7a;">查看</p>
+                        <div class="popup">
+                            <p1>藏花红 - #ec2d7a</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.藏花红，如同藏红花在晨曦中初绽的色泽，深邃而浓烈，散发出独特的香气与神秘感，温暖而高贵，仿佛是自然赋予的珍贵馈赠，低调却拥有无与伦比的魅力。</p>
+                            <img src="img/藏花红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>艳红</td>
+                    <td>#ed5a65</td>
+                    <td>R:237  G:90  B:101</td>
+                    <td>C:0  M:77  Y:49  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #ed5a65;">查看</p>
+                        <div class="popup">
+                            <p1>艳红 - #ed5a65</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;艳红，馥郁而热烈，仿若盛开的玫瑰在晨露中微微舒展花瓣，娇艳中透着高贵，浓烈里藏着柔情，每一抹色彩都映射出生命的热情与浪漫，令人沉醉其中，难以忘怀。</p>
+                            <img src="img/艳红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>苋菜红</td>
+                    <td>#a61b29</td>
+                    <td>R:166  G:27  B:41</td>
+                    <td>C:19  M:99  Y:86  K:11</td>
+                    <td>
+                        <p class="button button1" style="background-color: #a61b29;">查看</p>
+                        <div class="popup">
+                            <p1>苋菜红 - #a61b29</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苋菜红，深邃而浓烈，仿佛新摘苋菜叶在日光下晕染出的绛紫红色，沉稳中带着一丝灵动，既有大地的醇厚气息，又透着几分温润的生机，低调而不失风韵，宛如时光沉淀后的绢染色泽，悠然而独特。</p>
+                            <img src="img/苋菜红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>茶花红</td>
+                    <td>#ee3f4d</td>
+                    <td>R:238  G:63  B:77</td>
+                    <td>C:0  M:84  Y:60  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #ee3f4d;">查看</p>
+                        <div class="popup">
+                            <p1>茶花红 - #ee3f4d</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;茶花红，温润而雅致，宛如晨曦中悄然绽放的山茶花，色泽娇艳却不张扬，柔和的红中透着一丝清雅与从容，恰似微风拂过花瓣时的轻盈韵律，散发出一种宁静而隽永的美感。</p>
+                            <img src="img/茶花红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>唐菖蒲红</td>
+                    <td>#de1c31</td>
+                    <td>R:222  G:48  B:49</td>
+                    <td>C:0  M:93  Y:76  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #de1c31;">查看</p>
+                        <div class="popup">
+                            <p1>唐菖蒲红 - #de1c31</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;唐菖蒲红，浓烈而热情，宛如盛放的唐菖蒲在阳光下绽放出层层叠叠的艳丽，色泽鲜明而富有生命力，带着一种昂扬向上的气势，仿佛燃烧的火焰般炽热，却又流露出优雅的风姿。</p>
+                            <img src="img/唐菖蒲红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>淡曙红</td>
+                    <td>#ee2746</td>
+                    <td>R:238  G:39  B:70</td>
+                    <td>C:0  M:89  Y:62  K:0</td>
+                    <td>
+                        <p class="button button1" style="background-color: #ee2746;">查看</p>
+                        <div class="popup">
+                            <p1>淡曙红 - #ee2746</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;淡曙红，柔和而雅致，如晨曦初现时天际微染的红晕，轻盈中透着温暖，宁静而不失生机，仿佛拂晓的微风轻轻掠过，留下浅淡却悠远的余韵，低调中蕴含着一抹温柔的诗意。</p>
+                            <img src="img/淡曙红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+                <tbody>
+                    <td>满江红</td>
+                    <td>#a7535a</td>
+                    <td>R:167  G:83  B:90</td>
+                    <td>C:22  M:76  Y:54  K:12</td>
+                    <td>
+                        <p class="button button1" style="background-color: #a7535a;">查看</p>
+                        <div class="popup">
+                            <p1>满江红 - #a7535a</p1>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;满江红，浓烈而壮阔，仿佛翻涌的江水倒映着晚霞的炽热光辉，色泽深沉而激昂，透着铁骨铮铮的豪情与磅礴之势，既如燃烧的战旗般热血，又似千古忠烈的英魂，辉映天地，荡气回肠。</p>
+                            <img src="img/满江红.jpg">
+                        </div>
+                    </td>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

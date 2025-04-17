@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成就介绍</title>
+</head>
+
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+      }
+    .shell{
+        height: 100vh;
+        overflow-x: hidden;
+        perspective: 3px;
+    }
+    .shell div{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        font-style: 30px;
+        letter-spacing: 2px;
+    }
+    .image{
+        transform: translateZ(-1px) scale(1.6);
+        background-size: cover;
+        height: 100vh;
+        z-index: -1;
+    }
+    .text{
+        height: 50vh;
+        background-color: #fff;
+    }
+    .text p{
+        color: #000;
+        padding-left: 350px;
+        padding-right: 350px;
+        max-width: 80%;
+        line-height: 1.9;
+        background-color: rgb(249, 241, 230);
+        font-family: '华文中宋';
+        text-align: flex;
+        font-size: 17px;
+    }
+    .heading{
+        z-index: -1;
+        transform: translateY(-30vh) translateZ(1px);
+        color: #ffffff;
+        font-size: 50px;
+        font-family: '字魂白鸽天行体';
+        background-image: linear-gradient(to right, #000000, #4a4a4a); 
+        -webkit-background-clip: text; 
+        font-weight: 400;
+        color: transparent; 
+    }
+    .second-heading h1{
+        font-weight: 400;
+        color: rgb(255, 255, 255); /* 字体颜色 */
+        -webkit-text-stroke: 2px #000000; /* 描边：1px 宽度，黑色 */
+        text-stroke: 1px #000000; 
+    }
+    .navbar {
+        height: 12%;
+        display: flex;
+        align-items: center;
+        background-color: rgba(225, 139, 10, 0.2);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav {
+        flex: 1;
+        text-align: right;
+      }
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 60px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #000000;
+        font-family: "优设标题黑";
+        font-size: 25px;
+        transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: rgba(0, 123, 255, 0.3); 
+        }
+      .logo {
+        width: 80px;
+        cursor: pointer;
+      }
+
+      .menu-icon { 
+        width: 30px; 
+        cursor: pointer; 
+        margin-left: 40px; 
+      }
+        .pagination {
+          display: flex;
+          justify-content: center;
+          padding: 10px 0;
+          margin: 0;
+          list-style: none;
+        }
+
+        .pagination li {
+          margin: 0 5px;
+        }
+
+        .pagination a {
+          display: inline-block;
+          padding: 10px 20px;
+          text-decoration: none;
+          color: #333;
+          background-color: rgb(249, 241, 230);
+          border: 1px solid #ddd;
+          border-radius: 25px;
+          transition: all 0.3s ease;
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+        }
+
+        .pagination a:hover {
+          background-color: #007bff;
+          color: #fff;
+          border-color: #007bff;
+          box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .pagination a:active {
+          background-color: #0056b3;
+          border-color: #0056b3;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+          .pagination a {
+            padding: 8px 15px;
+            font-size: 14px;
+          }
+        }
+</style>
+
+<body>
+  <div class="navbar">
+    <img src="img/logo.png" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="../home/home.html">首页</a></li>
+        <li><a href="..\a博物馆_成就馆_首页\achievement.html">五色|成就馆</a></li>
+        <li><a href="..\a历史馆\index copy.html">五色|历史馆</a></li>
+        <li><a href="..\a博物馆_成就馆_首页\color.html">五色|博物馆</a></li>
+        <li><a href="..\a应用馆\html\art_craft.html">五色|应用馆</a></li>
+        <li><a href="../home/data_home.html">五色|数据馆</a></li>
+      </ul>
+    </nav>
+    <img src="img/menu.png" class="menu-icon" />
+  </div>
+    <div class="shell">
+      <a href="../home/home.html">
+        <img src="img/叉.png" class="close-btn" alt="关闭">
+      </a>
+        <div class="image" style="background-image: url('img/11.png');"></div>
+        <div class="heading">
+            <h1>五色·源起</h1>
+        </div>
+        <div class="text">
+            <br>
+            <p>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;中国传统的“五色观”，结合“阴阳五行说”，从自然中生发。 周礼中记载：画缋之事，杂五色。何谓“五色”？即中华五色“青、赤、黄、白、黑”。中国阴阳五行学说则认为天地万物是由“金、木、水、火、土”五种物质组成，根据每个元素的属性品类选出与之相匹配的五色。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;除了五行论，儒家也对五色做出了规范，维护周时建立的色彩典章制度，将五色定为正色，由五色按照五行相生规律调配而成的各种颜色定为间色，并且赋予它们尊卑贵贱的象征意义。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;清初博明《西斋偶得》中记载：五色相宣之理，以相反而相成。如白之与黑，朱之与绿，黄之与蓝，乃天地间自然之对，待深则俱深，浅则俱浅。相杂而间，色生矣。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;中华五色，是自然观与社会观相结合的色彩理念，是组成一切色象的基本色，刘熙《释名•释彩帛》中指出“青，生也，象物生时色也；赤，赫也，太阳之色也；黄，晃也，犹晃晃象日光色也；白，启也，如冰启时色也；黑，晦也，如晦冥时色也”。由此可知，古人对色彩的称谓来源于对自然和事物的观察。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 中国传统的“五色观”，并非独立静观的存在，而是一个全息式的整体思维系统，对应天地、阴阳、方位、季节、声音，牵系五脏、五味、五气。中国传统的“五色观”，是中华民族的祖先在生产实践中对天地万物色彩的归纳总结，杂糅了对生命、宗教审美、文化、礼制的认知感悟。<br>
+            </p>
+        </div>
+        
+        <div class="image" style="background-image: url('img/22.jpeg');"></div>
+        <div class="heading second-heading">
+            <h1>五色·五行</h1>
+        </div>
+        <div class="text">
+            <p> <br>&nbsp;&nbsp;&nbsp;&nbsp;五行是天地造物之本源，世间万物皆基于五行而变化，五色与五行之间的对应关系由古人通过生产实践总结出来。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;青应木，“木”意味冒出，春天草木破土穿过土层表面，万物初生，草木为青。木曰曲直，意为木可曲可直，而东方有曲直之象。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;赤应火，“火”其形像上行的火焰。“火”为火光旺盛，“上”为上行，火焰产生的光辉向上升腾散布，古代统治者坐北朝南，接见群臣，听取天下政务，向着光明的方向统筹江山，大概取火之意象。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;黄应土，“土”是大、中、至正之气，其色为黄。土中含有精华之气，故能吐生万物。土爱稼穑，种植庄稼叫“稼”，收割庄稼叫“穑”，两字相合指万物从土中穿出。土位于中央，这是四时、四方的中心参照物。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;白应金，金有禁止之意，阳主进，阴主退，禁万物向上生长的事态。金曰从革，“革”为改变、更改，古人用金的功效来集结军队，讨伐不义之徒，保卫一方百姓。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;黑应水，水应北方，北方之水远处看为黑色，寓意幽溟大海。水有“演”之意，“演”为长流的动水，水只下行不上行，下方空间无穷尽也，故水为长期流动之气。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;可见，五色产生与文化内涵都遵循着一定的自然规律。
+                </p>
+        </div>
+
+        <div class="image" style="background-image: url('img/33.jpg');"></div>
+        <div class="heading second-heading">
+            <h1>五色·五时</h1>
+        </div>
+        <div class="text">
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;古代帝王根据五时色来更换服饰、配饰、器物、马匹等，以适应时令、顺应天道。吕不韦集百家之思想，撰写了《吕氏春秋》，开篇就提及了一年十二个月的饮食、出行、服装、制度的规矩，根据五时色分类，将十二个月划分为春、夏、季夏、秋、冬。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;青应春，春季为生发之季，草木冒青，故青应春。春季要祭祀、悼念亡人、祭山河湖海，以表达对自然生灵的敬畏之心，在此期间禁止砍伐树木，保护青绿色的植物。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;赤应夏，夏本意为“假”，意为不实、内虚，虚则能容物，给万物生长留下发展空间，与火只上行不下行的形态一致，故赤应夏。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;黄应季夏，季夏指夏季的最后一个月，万物由此进入到下一个生命周期，与土吐生万物的运行形态相符，故土主季夏，黄应季夏。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;白应秋，秋为“愁”，有收敛、约束的意思，指秋天万物凋零后呈现出的肃杀之气，与五行之金运行形态一致，故白应秋，别名“白商素节”。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;黑应冬，冬有“终”之意，主内藏，是万物运行周期的终结，与水始终向下直至停止形态相符合，故黑应冬。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;每种季节与色彩的对应都源于自然的变化规律，渗透到古时统治阶级的礼仪文化和平民阶级的日常生活。五色与五时在人类历史演变过程中彰显了中国传统文化内涵。
+                </p>
+        </div>
+
+        <div class="image" style="background-image: url('img/44.jpg');"></div>
+        <div class="heading second-heading">
+            <h1>五色·五方</h1>
+        </div>
+        <div class="text">
+            <p><br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;《周礼·考工记》中记载:“东方谓之青，西方谓之白，南方谓之赤，北方谓之黑，天谓之玄，地谓之黄”。其中所提到的五色，就是五方正色。青、赤、黄、白、黑同五方对应,形成东青、南赤、中黄、西白、北黑的固定组合,也叫方色。五色与五方结合,将色彩比附方位,构成了五色与五方的理念。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;青应东，太阳每日从东方升起，阳气初动，与青木发生之势相对应。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;赤应南，太阳从南向北，阳气愈胜，与赤火只上行不下行的运行形态一致。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;白应西，古代没有“西”字，以“栖”表示方位，寓意归巢、收入，与秋的意象一致，秋应金，金应白，故白应西。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;黑应北，北方又称伏方，阳气在下、万物冬藏，与冬相符，冬应黑，故黑应北。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;黄应中，土为大、中、至正之气位于中央，黄土为土，故黄应中央。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;现代地图的绘制方法参考了五方的方位构图，也足以证实五方的合理性，肯定了五行文化的科学性。
+            </p>
+        </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12" style="background-color: rgb(249, 241, 230);">
+      <ul class="pagination">
+        <li><a href="../a博物馆_成就馆_首页/achievement.html">顶部</a></li>
+      </ul>
+    </div>
+  </div>  
+</body>
+</html>
+

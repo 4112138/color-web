@@ -9,7 +9,7 @@
 }
 @font-face {
   font-family: '优设标题黑';
-  src: url('../home/fonts/youshebiaotihei.ttf') format('truetype');
+  src: url('../home/fonts/优设标题黑.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,7 +19,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 /* 加载动画容器 */
 .whiskey-loader {
   position: fixed;
